@@ -29,13 +29,15 @@ def genGroup():
     members_per_group=int(total_strength/number_of_groups)
     for i in range(number_of_groups):
         temp=[]
-        for j in range(members_per_group):
+        while(j<members_per_group):
             temp.append(rnd.choice(lst_copy))
             lst_copy.remove(temp[j])
             temp[j]=ds[temp[j]]
+            j+=1
         groups.append(temp)
-        members_per_group=int(len(lst_copy)/(number_of_groups-i+1))
-        print(len(lst_copy)," ",members_per_group)
+        if(number_of_groups-(i+1)>0):
+            members_per_group=int(len(lst_copy)/(number_of_groups-(i+1)))
+        
     if(len(lst_copy)>0):
         temp=[]
         for i in range(len(lst_copy)):
@@ -66,6 +68,7 @@ def main():
         elif(choice==2):
             if(flag==0):
                 print("Generate the group first!")
+                continue
             printGroup(groups)
         elif(choice==3):
             print("Thank You, Have a Great Day ")
