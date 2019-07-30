@@ -2,8 +2,7 @@ import numpy as np
 import random as rnd
 
 def genGroup():
-    number_of_groups=5
-    #number_of_groups=int(input("Enter the Number of groups : "))
+    number_of_groups=int(input("Enter the Number of groups : "))
     groups=[]
     names=["Aakash Babu","Ajay Damodar","Akileshvar A","Arun Kumar T",
            "Harini S","Janani","Jayaram","Joel Anthony Xavier","Kamalam",
@@ -13,14 +12,7 @@ def genGroup():
            "Rashmi K","Sanjana","Shrinidhi","Shruthi R","Sreenila","Srinitha",
            "Sruthi B","Sruthi S","Surya N","Vigneshwaran S","Tarun Kumar M M",
            "Vikhram R A","Visalatchi"]
-    total_strength=38
-#    print("There will be a group with ", total_strength%number_of_groups,
-#          'members\n Or there should be a equal spread ?(y/n) : ')
-#    choice=input()
-#    if(choice=='n'):
-#        print("")
-#    else:
-#        print("")
+    total_strength=len(names)
     lst=list(np.arange(1,41,1))
     lst.remove(2)
     lst.remove(15)
@@ -29,6 +21,7 @@ def genGroup():
     members_per_group=int(total_strength/number_of_groups)
     for i in range(number_of_groups):
         temp=[]
+        j=0
         while(j<members_per_group):
             temp.append(rnd.choice(lst_copy))
             lst_copy.remove(temp[j])
@@ -53,6 +46,11 @@ def printGroup(groups):
         print("Group ",i+1,' : ')
         for j in range(len(groups[i])):
             print(j+1,". ",groups[i][j])
+
+def ret(ds,x):
+    for a,b in ds:
+        if (x==b):
+            return a
             
 def main():
     flag=0
@@ -75,3 +73,5 @@ def main():
             return
 
 main()
+ds={1:'one',2:'two'}
+ret(ds,'one')
