@@ -46,11 +46,6 @@ def printGroup(groups):
         print("Group ",i+1,' : ')
         for j in range(len(groups[i])):
             print(j+1,". ",groups[i][j])
-
-def ret(ds,x):
-    for a,b in ds:
-        if (x==b):
-            return a
             
 def main():
     flag=0
@@ -73,5 +68,3 @@ def main():
             return
 
 main()
-ds={1:'one',2:'two'}
-ret(ds,'one')
